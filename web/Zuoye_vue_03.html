@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zuoye_vue_03</title>
+</head>
+<body>
+<div id="div01">
+    <input id="ipt01" @keyup.enter="search">
+    <p v-for="city in cities" v-if="city.status==true">{{city.name}}</p>
+</div>
+
+<script src="js/vue.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#div01',
+        data:{
+            cities:[
+                {name:'北京',status:true},
+                {name:'天津',status:true},
+                {name:'南京',status:true},
+                {name:'东京',status:true},
+                {name:'河北',status:true},
+                {name:'河南',status:true},
+                {name:'湖南',status:true},
+                {name:'湖北',status:true},
+                {name:'山东',status:true},
+                {name:'山西',status:true},
+                {name:'江西',status:true},
+                {name:'陕西',status:true},
+                {name:'西藏',status:true}
+            ]
+        },
+        methods:{
+            search:function () {
+                var value = $('#ipt01').val();
+                $(this.cities).each(function (index,element) {
+                    if(element.name.indexOf(value)!=-1){
+                        element.status = true;
+                    }else {
+                        element.status = false;
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

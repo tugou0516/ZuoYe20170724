@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zuoye_vue_02</title>
+</head>
+<body>
+<div id="div01">
+    <table border="1">
+        <tr>
+            <th>序号</th>
+            <th>ID</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>出版社</th>
+            <th>售价</th>
+        </tr>
+        <template v-for="(element,index) in books">
+            <tr>
+                <td>{{index+1}}</td>
+                <td>{{element.id}}</td>
+                <td>{{element.name}}</td>
+                <td>{{element.author}}</td>
+                <td>{{element.publisher}}</td>
+                <td>{{element.price}}</td>
+            </tr>
+        </template>
+    </table>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#div01',
+        data:{
+            books:[
+                {id:181001,name:'十万个为什么',author:'张大',publisher:'xxx出版社',price:48.5},
+                {id:181002,name:'二十万个为什么',author:'张二',publisher:'xxx出版社',price:59.2},
+                {id:181003,name:'上下五千年',author:'王四',publisher:'aaa出版社',price:89.4},
+                {id:181004,name:'少儿自然百科',author:'戴蒙德',publisher:'bbb出版社',price:62.5},
+                {id:181005,name:'少儿物理百科',author:'戴蒙德',publisher:'bbb出版社',price:68.4}
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>

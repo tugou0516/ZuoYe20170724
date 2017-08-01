@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zuoye_vue_01</title>
+    <style>
+        #div01{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div id="div01" :style="{backgroundColor:color}">
+    <div id="pic01" v-if="showPic">
+        *****假装是个图片*****
+    </div>
+    <input type="checkbox" id="check01" v-model="showPic">显示图片
+    <div>
+        文字<br/>
+        一些文字<br/>
+        blablabla<br/>
+        还有一些文字<br/>
+        更多的文字，文字文字文字<br/>
+        文字<br/>
+    </div>
+    <select id="slc01" @change="changeColor">
+        <option value="#d1d1d1">默认背景颜色</option>
+        <option value="#ffa692">淡红</option>
+        <option value="#7bff95">淡绿</option>
+        <option value="#bbc0ff">淡蓝</option>
+        <option value="#ebe054">淡黄</option>
+    </select>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#div01',
+        data:{
+            showPic:true,
+            color:'#d1d1d1'
+        },
+        methods:{
+            changeColor:function () {
+                this.color = document.getElementById('slc01').value;
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
